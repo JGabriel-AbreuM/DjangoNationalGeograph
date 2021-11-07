@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Django National Geograph{% endblock %}
+
+{% block content %}
+    <div class="card-group">
+        {% for animal in animals %}
+            <div class="card" style="margin-right: 5px;">
+                <!-- <img class="card-img-top img-fluid" src="{{ animal.imagem.url }}" style="max-height: 200px;"> -->
+                <div class="card-body">
+                  <h5 class="card-title">{{ animal.nome_popular }}</h5>
+                  <p class="card-text">id: {{ animal.id }} </p>
+                  <p class="card-text">raça: {{ animal.raca }} </p>
+                  <p class="card-text">nome_cientifico: {{ animal.nome_cientifico }} </p>
+                  <p class="card-text">origem: {{ animal.origem }} </p>
+                </div>
+              </div>
+       
+        {% endfor%}
+    </div>
+{% endblock %}  
