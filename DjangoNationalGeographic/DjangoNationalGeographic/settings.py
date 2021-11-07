@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
     'rest_framework',
     'Animal',
     'Protecao',
@@ -45,7 +46,11 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ],
+
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
     ]
 }
 
@@ -65,7 +70,7 @@ ROOT_URLCONF = 'DjangoNationalGeographic.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -123,6 +128,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+MEDIA_URL = '/media/'
 
 
 # Static files (CSS, JavaScript, Images)
